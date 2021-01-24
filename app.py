@@ -13,8 +13,10 @@ import urllib
 
 output = None
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.scripts.config.serve_locally = True
+server = app.server
 
 app.layout = html.Div([dcc.Upload(
     id='upload-data',
@@ -80,4 +82,4 @@ def update_download_link(df):
 
 
 if __name__ == '__main__':
-    app.run_server()
+    app.run_server(debug=True)
