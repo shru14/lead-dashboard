@@ -1,23 +1,17 @@
 import base64
-import datetime
 import io
 import dash
 from dash.dependencies import Input, Output, State
 import dash_core_components as dcc
 import dash_html_components as html
-import dash_table_experiments as dt
 from get_data import get_top_300_enterprises
 import pandas as pd
-import numpy as np
 import urllib
 
 output = None
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
-
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.scripts.config.serve_locally = True
-server = app.server
-
 app.layout = html.Div([dcc.Upload(
     id='upload-data',
     children=html.Div([
